@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 from PyQt5.uic import loadUi
 import sys
 
@@ -21,10 +21,16 @@ class MainWindow(QMainWindow):
         self.actionChange_FontSize.triggered.connect(self.changeFontSize)
 
     def newFile(self):
-        print("New file")
+        self.textEdit.clear()
+        self.setWindowTitle("Untitled")
 
     def openFile(self):
-        print("Opened file")
+        # fname = QFileDialog.getOpenFileName(self, "Open File", "C:\\Users\\USER\\Desktop\\dev\\personal\\text_editor", "Text files (*.txt)")
+        fname = QFileDialog.getOpenFileName(self, "Open File", filter="Text files (*.txt)")  # default files path
+        self.setWindowTitle(fname[0])
+        with open(fname[0], "r") as f:
+            text = f.read()
+            self.textEdit.setText(text)
 
     def saveFile(self):
         print("Saved file")
