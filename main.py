@@ -33,19 +33,19 @@ class MainWindow(QMainWindow):
         print("Saved file as")
 
     def undo(self):
-        print("Undo action on ...")
+        self.textEdit.undo()
 
     def redo(self):
-        print("Redo action on ...")
+        self.textEdit.redo()
 
     def copy(self):
-        print("Copied text")
+        self.textEdit.copy()
 
     def cut(self):
-        print("Cut text")
+        self.textEdit.cut()
 
     def paste(self):
-        print("Pasted text")
+        self.textEdit.paste()
 
     def darkMode(self):
         print("Dark Mode activated")
