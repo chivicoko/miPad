@@ -9,7 +9,8 @@ class MainWindow(QMainWindow):
         loadUi("main.ui", self)
 
         self.current_path = None
-        self.current_fontsize = 8
+        self.current_fontsize = 10
+        self.textEdit.setFontPointSize(self.current_fontsize)
         self.setWindowTitle(f"VC Pad - Untitled*")
 
         self.actionNew.triggered.connect(self.newFile)
@@ -112,12 +113,15 @@ class MainWindow(QMainWindow):
 
 
     def DecreaseFontSize(self):
-        self.current_fontsize -= 1
-        self.textEdit.setFontPointSize(self.current_fontsize)
+        if self.current_fontsize >= 8:
+            self.current_fontsize -= 1
+            self.textEdit.setFontPointSize(self.current_fontsize)
+        else:
+            pass
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ui = MainWindow()
-    ui.show()
+    ui_window = MainWindow()
+    ui_window.show()
     app.exec_()
