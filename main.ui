@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>VC Pad - Flexible Text Editor</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -57,7 +57,8 @@
     <addaction name="actionDark_Mode"/>
     <addaction name="actionLight_Mode"/>
     <addaction name="separator"/>
-    <addaction name="actionChange_FontSize"/>
+    <addaction name="actionIncrease_Font_Size"/>
+    <addaction name="actionDecrease_Font_Size"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -152,9 +153,20 @@
     <string>Ctrl+Shift+L</string>
    </property>
   </action>
-  <action name="actionChange_FontSize">
+  <action name="actionIncrease_Font_Size">
    <property name="text">
-    <string>Change FontSize</string>
+    <string>Increase Font Size</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionDecrease_Font_Size">
+   <property name="text">
+    <string>Decrease Font Size</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
    </property>
   </action>
  </widget>

@@ -9,6 +9,7 @@ class MainWindow(QMainWindow):
         loadUi("main.ui", self)
 
         self.current_path = None
+        self.current_fontsize = 8
         self.setWindowTitle(f"VC Pad - Untitled*")
 
         self.actionNew.triggered.connect(self.newFile)
@@ -22,7 +23,8 @@ class MainWindow(QMainWindow):
         self.actionPaste.triggered.connect(self.paste)
         self.actionDark_Mode.triggered.connect(self.darkMode)
         self.actionLight_Mode.triggered.connect(self.lightMode)
-        self.actionChange_FontSize.triggered.connect(self.changeFontSize)
+        self.actionIncrease_Font_Size.triggered.connect(self.IncreaseFontSize)
+        self.actionDecrease_Font_Size.triggered.connect(self.DecreaseFontSize)
 
 
     def newFile(self):
@@ -104,10 +106,14 @@ class MainWindow(QMainWindow):
         self.setStyleSheet("")
 
 
-    def changeFontSize(self):
-        print("Changed text's font size")
+    def IncreaseFontSize(self):
+        self.current_fontsize += 1
+        self.textEdit.setFontPointSize(self.current_fontsize)
 
 
+    def DecreaseFontSize(self):
+        self.current_fontsize -= 1
+        self.textEdit.setFontPointSize(self.current_fontsize)
 
 
 if __name__ == "__main__":
