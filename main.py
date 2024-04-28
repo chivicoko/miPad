@@ -11,7 +11,7 @@ class MainWindow(QMainWindow):
         self.current_path = None
         self.current_fontsize = 10
         self.textEdit.setFontPointSize(self.current_fontsize)
-        self.setWindowTitle(f"VC Pad - Untitled*")
+        self.setWindowTitle(f"miPad - Untitled*")
 
         self.actionNew.triggered.connect(self.newFile)
         self.actionOpen.triggered.connect(self.openFile)
